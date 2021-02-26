@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link th:href="@{css/main.css}" href="../static/css/main.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{css/footer.css}" href="../static/css/footer.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{js/footer.js}" src="../static/js/footer.js"></script>
     <title>Output</title>
 </head>
 <body>
+<h1>Output</h1>
+<h2>Employee</h2>
 
+<p th:text="${envelope.empName}">Dhruv</p>
+
+<p th:text="${envelope.empStatus}">Full Time</p>
+
+
+<p th:text="${envelope.trained}?'Trained':'Not Trained'">Not Trained</p>
+
+
+<p th:text="${envelope.certified}?'Certified':'Not Certified'">Not Trained</p>
+<p>
+    <a href="Input.html" th:href="@{Input}">Back to Input</a>
+</p>
 </body>
 </html>

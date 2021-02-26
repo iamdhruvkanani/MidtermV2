@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="form" type="sheridan.kananid.domain.Envelope"*/-->
+<!--/*@thymesVar id="status" type="sheridan.lang.String[]"*/-->
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Input</title>
+
+    <link th:href="@{css/main.css}" href="../static/css/main.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{css/footer.css}" href="../static/css/footer.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{js/footer.js}" src="../static/js/footer.js"></script>
 </head>
 <body>
+<main>
+    <h1>Employee</h1>
+    <form action="Output.html" th:action="@{Process}">
+        <h2>Employee Name</h2>
+        <p>
+            <label for="name" class="group_label">Employee Name</label><br>
+            <input id="name" type="text" th:name="employeeName" />
+            <span th:if="${#fields.hasErrors('employeeName')}"
+                  class="error">&larr;&nbsp;<span th:errors="employeeName">Employee Name Error</span></span>
+        </p>
 
+        <h2>Status</h2>
+        <p>
+            <label for="status" class="group_label">Kind</label><br>
+            <select id="status" th:name="employeeStatus">
+                <option th:each="p: ${status}" th:value="${p}" th:text="${p}" >--- Select Employee Status ---</option>
+            </select>
+
+        </p>
+
+        <p>
+            <label><input type="checkbox" th:name="trained">Trained</label>
+        </p>
+        <p>
+            <label><input type="checkbox" th:name="certified">Certified</label>
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+    </form>
+</main>
 </body>
 </html>
