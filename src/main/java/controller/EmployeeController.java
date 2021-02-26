@@ -12,9 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class EmployeeController {
     private final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 
-    private static final String[] status = {
-            "Full Time",
-            "Part Time"};
+
 
     @GetMapping(value={"/", "/Input"})
     public String input(){
